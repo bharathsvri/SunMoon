@@ -1,0 +1,119 @@
+<html>
+<head>
+	<title>Sun Moon</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<style>
+		@media screen and (max-width:425){
+			*{
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+			}
+		
+		}
+		
+		body{
+			background:#000;
+		}
+
+		.a{
+			width:200px;
+			height:200px;
+			background:linear-gradient(to right,#ff0000,#ff00ff,dodgerblue);
+			border-radius:50%;
+			padding:5px;
+		}
+
+		.moon{
+			width:200px;
+			height:200px;
+			background:#fffdfd;
+			filter:brightness(200%) blur(2px);
+			border-radius:50%;
+			padding:5px;
+		}
+
+		.sun{
+			width:200px;
+			height:200px;
+			background:radial-gradient(yellow,orange,orange);
+			filter:brightness(200%) blur(2px);
+			border-radius:50%;
+			padding:5px;
+		}
+
+		.add{
+			animation:ani 1s infinite linear forwards;
+		}
+
+		@keyframes ani{
+			100%{
+				transform:rotate(360deg);
+			}
+		}
+
+		.b{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			height:100vh;
+		}
+		
+		.buttons{
+			margin-top:40px;
+			display:flex;
+			justify-content:space-evenly;
+		}
+
+
+	</style>
+</head>
+<body>
+<div class="buttons">
+	<button onclick="roll()">Start Rotate</button>
+	<button onclick="nonRoll()">Stop Rotate</button>
+	<button onclick="sun()">Sun</button>
+	<button onclick="removeSun()">Remove Sun</button>
+	<button onclick="moon()">Moon</button>
+	<button onclick="nonMoon()">nonMoon</button>
+</div>
+<div class="b">
+	<div class="a"></div>
+</div>
+<script>
+	let r=document.querySelector(".a");
+	function roll(){
+		r.classList.add("add");
+		r.classList.add("a");
+	}
+
+	function nonRoll(){
+		r.classList.remove("add");
+	}
+
+	function sun(){
+		r.classList.remove("a");
+		r.classList.remove("moon");
+		r.classList.add("sun");
+	}
+
+	function removeSun(){
+		r.classList.remove("sun");
+		r.classList.remove("moon");
+		r.classList.add("a");
+	}
+
+	function moon(){
+		r.classList.remove("a");
+		r.classList.remove("sun");
+		r.classList.add("moon");
+	}
+
+	function nonMoon(){
+		r.classList.remove("moon");
+		r.classList.remove("sun");
+		r.classList.add("a");
+	}
+</script>
+</body>
+</html>
